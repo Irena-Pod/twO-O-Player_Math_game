@@ -15,14 +15,18 @@ count = 0
 
 puts "Welcome #{player1.name} and #{player2.name}, let the game begin.."
 
+# Alternate questions between player1 and player2 until one loses all three lives
 while (player1.alive? && player2.alive?) do
   player = (count == 0) ? player1 : player2
+
   puts '----- NEW TURN -----'
 
   question = Questions.new
+
   puts "#{player.name}: #{question.question}"
   print "> "
   answer = gets.chomp
+
   if answer.to_i == question.answer
     puts "#{player.name}: YES. YOU ARE CORRECT!"
     puts "#{player1.name}: #{player1.lives}/3 vs #{player2.name}: #{player2.lives}/3"  
@@ -34,6 +38,7 @@ while (player1.alive? && player2.alive?) do
   count = (count + 1) % 2
 end
 
+# Game over and announcement of winner and score
 if player1.lives == 0
   puts "#{player2.name} wins with a score of #{player2.lives}/3"
   puts '----- GAME OVER -----'
