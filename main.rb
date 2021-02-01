@@ -28,7 +28,7 @@ while (player1.alive? && player2.alive?) do
   answer = gets.chomp
 
   if answer.to_i == question.answer
-    puts "#{player.name}: YES. YOU ARE CORRECT!"
+    puts "#{player.name}: Yes. You are correct!"
     puts "#{player1.name}: #{player1.lives}/3 vs #{player2.name}: #{player2.lives}/3"  
   else 
     player.lives -= 1
